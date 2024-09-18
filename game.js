@@ -290,7 +290,7 @@
  }
  
 function sendScoreToBackend(username, score, level) {
-    fetch('http://localhost:3000/api/score/submit-score', {
+    fetch('https://acm-synanto-game.netlify.app/api/score/submit-score', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

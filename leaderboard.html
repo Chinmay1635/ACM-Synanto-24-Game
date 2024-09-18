@@ -20,7 +20,7 @@
 
 <script>
     window.onload = function() {
-        fetch('/api/user/leaderboard')
+        fetch('https://acm-synanto-game.netlify.app/api/user/leaderboard')
         .then(response => response.json())
         .then(data => {
             const leaderboardTable = document.getElementById('leaderboard-table').querySelector('tbody');
