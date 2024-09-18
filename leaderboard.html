@@ -20,7 +20,7 @@
 
 <script>
     window.onload = function() {
-        fetch('http://localhost:3000/api/user/leaderboard')
+        fetch('/api/user/leaderboard')
         .then(response => response.json())
         .then(data => {
             const leaderboardTable = document.getElementById('leaderboard-table').querySelector('tbody');
