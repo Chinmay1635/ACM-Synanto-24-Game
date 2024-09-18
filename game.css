@@ -1,0 +1,223 @@
+@font-face {
+    font-family: font1;
+    src: url(/Sdglitchrobotdemo-GOPdO.ttf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-image: url(game-bg-3.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+h1{
+    font-family: font1;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+
+    background: linear-gradient(to right, #5d4157, #a8caba);
+    animation: gradientAnimation 5s ease-in infinite;
+    /* background: linear-gradient(to right, #5d4157, #a8caba);
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      background: linear-gradient(to right, #1a2980, #26d0ce);
+      background: linear-gradient(to right, #b3ffab, #12fff7);  
+      background: linear-gradient(to right, #fdfc47, #24fe41);
+      background: linear-gradient(to right, #fc00ff, #00dbde); */
+      /* background-size: 200% 200%; */
+
+    /* background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
+    /* background: linear-gradient(to right, orange, orangered); */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* color: rgb(226, 254, 16); */
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(to right, #5d4157, #a8caba);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+    20% {
+      background: linear-gradient(to right, #5d4157, #a8caba);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+    40% {
+      background: yellow;
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+    60% {
+      background: linear-gradient(to right, #1a2980, #26d0ce);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+    80% {
+      background: linear-gradient(to right, #b3ffab, #12fff7);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+    100% {
+      background: linear-gradient(to right, #fdfc47, #24fe41);
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    }
+  }
+
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://i.pinimg.com/564x/e2/22/b3/e222b39a0feee702d7a5622c19ab0c6a.jpg');
+    /* Replace with your image */
+    background-size: 300px 300px;
+    border: 1px solid #000;
+}
+
+#piece-1 {
+    background-position: 0 0;
+}
+
+#piece-2 {
+    background-position: -100px 0;
+}
+
+#piece-3 {
+    background-position: -200px 0;
+}
+
+#piece-4 {
+    background-position: 0 -100px;
+}
+
+#piece-5 {
+    background-position: -100px -100px;
+}
+
+#piece-6 {
+    background-position: -200px -100px;
+}
+
+#piece-7 {
+    background-position: 0 -200px;
+}
+
+#piece-8 {
+    background-position: -100px -200px;
+}
+
+#piece-9 {
+    background-position: -200px -200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#result {
+    font-size: 18px;
+    color: green;
+    margin-top: 10px;
+}
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: 7vw;
+    font-family: font1;
+}
+.data{
+    position: absolute;
+    top:3%;
+    right:30px;
+    color: white;
+    font-size: 4.5vw;
+    font-family: font1;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}

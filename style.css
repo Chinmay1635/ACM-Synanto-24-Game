@@ -1,0 +1,355 @@
+@font-face {
+    font-family: font1;
+    src: url(/Sdglitchrobotdemo-GOPdO.ttf);
+}
+
+@font-face {
+    font-family: font2;     
+    src: url(/Steelar-j9Vnj.otf);
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow: hidden;
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+#loader {
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    z-index: 1000;
+    position: fixed;
+    transform: translateY(0%);
+    top: 0;
+    opacity: 1;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+#loader h1 {
+    font-family: font1;
+}
+
+
+
+#loader span {
+    font-size: 10vw;
+    display: inline-block;
+    font-family: font1;
+    display: inline-block;
+    letter-spacing: 20px;
+}
+
+
+#loader span {
+    /* background: rgb(63, 94, 251); */
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    /* background: linear-gradient(to right, orange, orangered); */
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: load 1s linear;
+
+}
+
+#h2{
+    font-family: font2;
+    font-size: 2vw;
+    margin-top: 38px ;
+}
+
+#h2 span{
+    font-size: 5vw;
+    color: white;
+}
+
+#main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#bg{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    /* position: absolute; */
+}
+
+#logo{
+    width: 35%;
+    position: absolute;
+}
+#title span{
+    display: inline-block;
+    letter-spacing: 7px;
+}
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content h1{
+    font-size: 7vw;
+    font-family: font2;
+    color: #fff;
+    position: absolute;
+    top: 25%;
+}
+a{
+    position: absolute;
+    top: 75%;
+    text-decoration: none
+}
+/* buttoon */
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+:root {
+  --glow-color: hsl(186 100% 69%);
+  
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+  top: 75%;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn{
+    font-size: 1em;
+  }
+}
+
+#username-container{
+  position: absolute;
+  top: 45%;
+  color: rgb(20, 241, 46);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: font1;
+  font-size: 3.5vw;
+  letter-spacing: 2px;
+}
+
+#username{
+  border: 2px solid aqua;
+  background-color: rgba(0, 0, 0, 0.432);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  font-family: font1;
+  font-size: 3vw;
+  letter-spacing: 2px;
+}
