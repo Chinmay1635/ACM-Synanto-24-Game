@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb://localhost:27017/game', {
+mongoose.connect('mongodb+srv://chinmaykulkarni165:chinmay1635@cluster0.ojg8d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     
 }).then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
