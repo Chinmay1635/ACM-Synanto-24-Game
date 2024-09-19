@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-<main class="w-full text-white text-center flex flex-col gap-4 items-center bg-zinc-900">
-    <h2 class="text-3xl text-white font-bold font-[cursive] my-3">Leaderboard</h2>
-    <div id="leaderboard" class="flex flex-col gap-8 items-center"></div>
-</main>
+    <main class="w-full text-white text-center flex flex-col gap-4 items-center bg-zinc-900 z-10 font-[Inter]">
+        <h2 class="text-3xl text-white font-bold mt-7 uppercase">Leaderboard</h2>
+        <div id="leaderboard" class="flex flex-col gap-8 items-center"></div>
+    </main>
 
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 
     <script src="/leaderboard.js"></script>
 </body>
+
 </html>

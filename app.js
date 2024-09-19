@@ -1,25 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-
-
 const app = express();
-
-const corsOptions = {
-    origin: ['http://127.0.0.1:3000', 'https://acm-synanto-game.netlify.app'],
-    optionsSuccessStatus: 200
-  };
-  
-  app.use(cors(corsOptions));
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-mongoose.connect('mongodb+srv://chinmaykulkarni165:chinmay1635@cluster0.ojg8d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-    
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+mongoose.connect('mongodb+srv://chinmaykulkarni165:chinmay1635@cluster0.ojg8d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
 // Define User Schema
 const userSchema = new mongoose.Schema({
@@ -41,7 +31,6 @@ app.post('/api/score/submit-score', async (req, res) => {
         let user = await User.findOne({ username });
 
         if (!user) {
-            // Create a new user if they don't exist
             user = new User({ username, scores: [{ level, score }], totalScore: score });
         } else {
             // Update the score for the current level or add a new level
@@ -72,7 +61,8 @@ app.post('/api/score/submit-score', async (req, res) => {
 app.get('/api/user/leaderboard', async (req, res) => {
     try {
         const leaderboard = await User.find().sort({ totalScore: -1 }).limit(10);
-        res.json(leaderboard);
+        const reversedLeaderboard = leaderboard.reverse();
+        res.json(reversedLeaderboard);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error fetching leaderboard' });
