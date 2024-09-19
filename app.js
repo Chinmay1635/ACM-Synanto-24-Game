@@ -71,7 +71,7 @@ app.post('/api/score/submit-score', async (req, res) => {
 // Get Leaderboard
 app.get('/api/user/leaderboard', async (req, res) => {
     try {
-        const leaderboard = await User.find().sort({ totalScore: +1 }).limit(10);
+        const leaderboard = await User.find().sort({ totalScore: -1 }).limit(10);
         res.json(leaderboard);
     } catch (error) {
         console.error(error);
