@@ -28,7 +28,7 @@ window.onload = function() {
 
             card.innerHTML = `
                 <img src="${playerImage}" alt="Player Avatar" class="w-[150px] aspect-square" />
-                <h1 class="capitalize flex flex-col gap-10 font-thin text-3xl">
+                <h1 class="capitalize flex flex-col gap-10  font-thin text-2xl tracking-tight">
                    Score: ${entry.totalScore}
                     <span class="font-bold uppercase">${entry.username}</span>
                 </h1>
