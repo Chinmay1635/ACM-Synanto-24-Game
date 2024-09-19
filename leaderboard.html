@@ -6,33 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Leaderboard</h2>
-<table id="leaderboard-table">
-    <thead>
-        <tr>
-            <th>Rank</th>
-            <th>Player</th>
-            <th>Score</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+<main class="w-full text-white text-center flex flex-col gap-4 items-center py-[10vh]">
+    <h2 class="text-3xl mb-8">Leaderboard</h2>
+    <div id="leaderboard" class="flex flex-col gap-8 items-center"></div>
+</main>
 
 <script>
+    // List of dynamic images to assign (you can update with actual player images)
+    const playerImages = [
+        "/images/player1.png",  // Image for player 1
+        "/images/player2.png",  // Image for player 2
+        "/images/player3.png",  // Image for player 3
+        "/images/player4.png",  // Image for player 4
+        "/images/player5.png",  // Image for player 5
+    ];
+
     window.onload = function() {
         fetch('https://acm-synanto-2024-game.vercel.app/api/user/leaderboard')
         .then(response => response.json())
         .then(data => {
-            const leaderboardTable = document.getElementById('leaderboard-table').querySelector('tbody');
+            const leaderboardDiv = document.getElementById('leaderboard');
             
             data.forEach((entry, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${entry.username}</td>
-                    <td>${entry.totalScore}</td>
+                const card = document.createElement('div');
+                card.classList.add('card', 'card1', 'w-[27vw]', 'rounded-lg', 'py-20', 'px-[20px]', 'flex', 'flex-col', 'gap-4', 'items-center', 'bg-[#2e251e]');
+                
+                // Dynamically assign images based on the rank or player data
+                const playerImage = playerImages[index % playerImages.length]; // Loop through images for each player
+
+                card.innerHTML = `
+                    <img src="${playerImage}" alt="Player Avatar" class="w-[150px] aspect-square" />
+                    <h1 class="capitalize font-thin text-3xl">
+                        ${entry.totalScore} <br />
+                        <span class="font-bold uppercase">${entry.username}</span>
+                    </h1>
                 `;
-                leaderboardTable.appendChild(row);
+
+                leaderboardDiv.appendChild(card);
             });
         })
         .catch(error => {

@@ -5,9 +5,14 @@ const cors = require('cors');
 
 
 const app = express();
-app.use(cors({
-    origin: 'https://acm-synanto-game.netlify.app' // Your Netlify app
-  }));
+
+const corsOptions = {
+    origin: ['http://127.0.0.1:3000', 'https://acm-synanto-game.netlify.app'],
+    optionsSuccessStatus: 200
+  };
+  
+  app.use(cors(corsOptions));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
