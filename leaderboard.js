@@ -1,11 +1,16 @@
 
 // List of dynamic images to assign (you can update with actual player images)
 const playerImages = [
-    "/images/player1.png",  // Image for player 1
-    "/images/player2.png",  // Image for player 2
-    "/images/player3.png",  // Image for player 3
-    "/images/player4.png",  // Image for player 4
-    "/images/player5.png",  // Image for player 5
+    "/images/numbers/1.png",  // Image for player 1
+    "/images/numbers/2.png",  // Image for player 2
+    "/images/numbers/3.png",  // Image for player 3
+    "/images/numbers/4.png",  // Image for player 4
+    "/images/numbers/5.png",  // Image for player 5
+    "/images/numbers/6.jpg",  // Image for player 1
+    "/images/numbers/7.png",  // Image for player 2
+    "/images/numbers/8.png",  // Image for player 3
+    "/images/numbers/9.png",  // Image for player 4
+    "/images/numbers/10.png",  // Image for player 5
 ];
 
 window.onload = function() {
@@ -35,8 +40,8 @@ window.onload = function() {
                     scale:0.7,
                     scrollTrigger:{
                         trigger:card,
-                        start:"top 12%",
-                        end:"bottom 12%",
+                        start:"top 15%",
+                        end:"bottom 15%",
                         stagger:0.3,
                         scrub:true
                     }    
