@@ -21,7 +21,32 @@ const userSchema = new mongoose.Schema({
 // User Model
 const User = mongoose.model('User', userSchema);
 
-// API Routes
+app.post('/api/user/check-username', async (req, res) => {
+    const { username } = req.body;
+
+    try {
+        const user = await User.findOne({ username });
+        if (user)
+            res.json({ userExists: true });
+        else
+            res.json({ userExists: false });
+    } catch (error) {
+        console.log('Reached');
+        res.status(500).json({ error: 'Error checking username' });
+    }
+});
+
+app.post('/api/user/save-user', async (req, res) => {
+    const { username } = req.body;
+
+    try {
+        const user = new User({ username });
+        await user.save();
+        res.json({ registered: true, user });
+    } catch (error) {
+        res.status(500).json({ error: 'Error saving user' });
+    }
+})
 
 // Submit Score
 app.post('/api/score/submit-score', async (req, res) => {

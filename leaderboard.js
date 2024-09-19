@@ -1,5 +1,5 @@
 window.onload = async function () {
-    await fetch('http://127.0.0.1:3000/api/user/leaderboard')
+    await fetch('https://acm-synanto-2024-game.vercel.app/api/user/leaderboard')
         .then(response => response.json())
         .then(data => {
             const leaderboardDiv = document.getElementById('leaderboard');

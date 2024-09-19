@@ -1,24 +1,24 @@
-function loaderAnime(){
-    gsap.to("#loader",{
-        transform:"translateY(-100%)",
-        duration:2,
-        delay:1.8,
-    },"anim")
+function loaderAnime() {
+    gsap.to("#loader", {
+        transform: "translateY(-100%)",
+        duration: 2,
+        delay: 1.8,
+    }, "anim")
 
     //text anime
 
     var loaderh1 = document.querySelector("#loader h1");
-    
-        var loadertext = loaderh1.textContent.split("");
+
+    var loadertext = loaderh1.textContent.split("");
 
     var loaderclutter = "";
     loadertext.forEach(function (elem) {
-        if(elem === " "){
+        if (elem === " ") {
             loaderclutter += `<span>&nbsp;</span>`
-        }else{
-        loaderclutter += `<span>${elem}</span>`
+        } else {
+            loaderclutter += `<span>${elem}</span>`
         }
-        
+
     })
 
     loaderh1.innerHTML = loaderclutter;
@@ -29,22 +29,22 @@ function loaderAnime(){
         opacity: 0,
         ease: "expo.out",
         stagger: 0.1,
-        
+
     }, "anim")
 
     var loaderh2 = document.querySelector("#h2");
-    
-        var loadertext2 = loaderh2.textContent.split("");
+
+    var loadertext2 = loaderh2.textContent.split("");
 
     var loaderclutter2 = "";
     loadertext2.forEach(function (elem) {
-        
-        if(elem === " "){
+
+        if (elem === " ") {
             loaderclutter2 += `<span>&nbsp;</span>`
-        }else{
-        loaderclutter2 += `<span>${elem}</span>`
+        } else {
+            loaderclutter2 += `<span>${elem}</span>`
         }
-        
+
     })
     loaderh2.innerHTML = loaderclutter2;
     tl.from("#h2 span", {
@@ -53,9 +53,9 @@ function loaderAnime(){
         opacity: 0,
         ease: "expo.out",
         stagger: 0.1,
-        
+
     })
-    
+
 }
 loaderAnime();
 
@@ -63,39 +63,77 @@ loaderAnime();
 
 
 var loaderh1 = document.getElementById("title");
-    var loadertext = loaderh1.textContent.split("");
+var loadertext = loaderh1.textContent.split("");
 
-    var loaderclutter = "";
-    loadertext.forEach(function (elem) {
-        loaderclutter += `<span>${elem}</span>`
-    })
+var loaderclutter = "";
+loadertext.forEach(function (elem) {
+    loaderclutter += `<span>${elem}</span>`
+})
 
-    loaderh1.innerHTML = loaderclutter;
-    gsap.from("#title span", {
-        y: 100,
-        duration: 0.5,
-        opacity: 0,
-        ease: "expo.out",
-        stagger: 0.1,
-        delay:2.9,
-        
-    })
+loaderh1.innerHTML = loaderclutter;
+gsap.from("#title span", {
+    y: 100,
+    duration: 0.5,
+    opacity: 0,
+    ease: "expo.out",
+    stagger: 0.1,
+    delay: 2.9,
 
-    // Function to save username and show the game container
+})
+
+// Function to save username and show the game container
 function saveUsername() {
     const username = document.getElementById('username').value;
 
     if (username.trim() === "") {
         alert("Please enter a valid username.");
         return;
+    } else {
+        fetch('https://acm-synanto-2024-game.vercel.app/api/user/check-username', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username.trim().toLowerCase()
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.userExists) {
+                    alert("Username already exists. Please choose a different username.");
+                    return;
+                } else {
+                    fetch('https://acm-synanto-2024-game.vercel.app/api/user/save-user', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            username: username.trim().toLowerCase()
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(res => {
+                            if (res.registered) {
+                                alert("Username saved successfully!");
+                                document.cookie = `username=${res.user._id}; max-age=86400`;
+                                localStorage.setItem('username', res.user.username);
+                                localStorage.setItem('progress', 1);
+                                startGame();
+                            } else {
+                                alert("Error saving username. Please try again.");
+                            }
+                        }).catch(error => {
+                            console.error('Error:', error);
+                        });
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
     }
-
-    // Store the username in localStorage
-    localStorage.setItem('username', username);
-
-    startGame();
 }
 
-    function startGame(){
-        window.location.href = '/ACM-SLIDER/levels.html';
-    }
+function startGame() {
+    window.location.href = '/ACM-SLIDER/levels.html';
+}
