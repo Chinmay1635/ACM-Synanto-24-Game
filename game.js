@@ -286,7 +286,7 @@ function calculateScore(timeTaken) {
 }
 
 function sendScoreToBackend(username, score, level) {
-    fetch('https://acm-synanto-2024-game.vercel.app/api/score/submit-score', {
+    fetch('http://localhost:3000/api/score/submit-score', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -89,7 +89,7 @@ function saveUsername() {
         alert("Please enter a valid username.");
         return;
     } else {
-        fetch('https://acm-synanto-2024-game.vercel.app/api/user/check-username', {
+        fetch('http://localhost:3000/api/user/check-username', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ function saveUsername() {
                     alert("Username already exists. Please choose a different username.");
                     return;
                 } else {
-                    fetch('https://acm-synanto-2024-game.vercel.app/api/user/save-user', {
+                    fetch('http://localhost:3000/api/user/save-user', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
