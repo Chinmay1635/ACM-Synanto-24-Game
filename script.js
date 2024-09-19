@@ -82,11 +82,15 @@ gsap.from("#title span", {
 })
 
 // Function to save username and show the game container
-function saveUsername() {
+async function saveUsername() {
     const username = document.getElementById('username').value;
 
     if (username.trim() === "") {
-        alert("Please enter a valid username.");
+        await Swal.fire({
+            title: "Oops..",
+            text: "Please enter a valid username.",
+            icon: "error"
+        });
         return;
     } else {
         fetch('http://localhost:3000/api/user/check-username', {
@@ -99,9 +103,13 @@ function saveUsername() {
             })
         })
             .then(res => res.json())
-            .then(res => {
+            .then(async res => {
                 if (res.userExists) {
-                    alert("Username already exists. Please choose a different username.");
+                    await Swal.fire({
+                        title: "Oops..",
+                        text: "Username already exists. Please choose a different username.",
+                        icon: "error"
+                    });
                     return;
                 } else {
                     fetch('http://localhost:3000/api/user/save-user', {
@@ -114,15 +122,23 @@ function saveUsername() {
                         })
                     })
                         .then(res => res.json())
-                        .then(res => {
+                        .then(async res => {
                             if (res.registered) {
-                                alert("Username saved successfully!");
+                                await Swal.fire({
+                                    title: "Hurray...",
+                                    text: "Username saved successfully!",
+                                    icon: "success"
+                                });
                                 document.cookie = `username=${res.user._id}; max-age=86400`;
                                 localStorage.setItem('username', res.user.username);
                                 localStorage.setItem('progress', 1);
                                 startGame();
                             } else {
-                                alert("Error saving username. Please try again.");
+                                await Swal.fire({
+                                    title: "Oops..",
+                                    text: "Error saving username. Please try again.",
+                                    icon: "error"
+                                });
                             }
                         }).catch(error => {
                             console.error('Error:', error);

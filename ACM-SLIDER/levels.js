@@ -29,15 +29,17 @@ const levels = document.querySelectorAll('.level');
 const originalLevels = Array.from(levels).filter(level => !level.classList.contains('swiper-slide-duplicate'));
 
 originalLevels.forEach((level, index) => {
-	// Add your level logic here
 	if (index + 1 == progress) {
 		level.addEventListener("click", () => {
 			startLevel(index + 1);
 		})
 	} else {
-		level.addEventListener("click", () => {
-			console.log(level)
-			alert("Level is done or locked!")
+		level.addEventListener("click", async () => {
+			await Swal.fire({
+				title: "Oops..",
+				text: "Level is done or locked!",
+				icon: "warning"
+			});
 		})
 	}
 });

@@ -168,9 +168,7 @@ function checkPuzzle() {
     const currentOrder = Array.from(puzzleContainer.children).map(piece => piece.id);
 
     if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
-        const completed = true;  // Assume level is completed when submitting
-        endLevel(completed);  // End the level and calculate the score
-
+        endLevel(true);  // End the level and calculate the score
 
         document.getElementById('result').innerText = 'Congratulations! You solved the puzzle!';
         document.getElementById('result').style.color = 'green';
@@ -256,8 +254,6 @@ function endLevel(completed) {
 
         // Send score to backend
         sendScoreToBackend(username, score, level);
-
-
     }
 }
 
