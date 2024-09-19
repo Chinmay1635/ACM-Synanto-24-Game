@@ -1,16 +1,16 @@
 
 // List of dynamic images to assign (you can update with actual player images)
 const playerImages = [
-    "/images/numbers/1.png",  // Image for player 1
-    "/images/numbers/2.png",  // Image for player 2
-    "/images/numbers/3.png",  // Image for player 3
-    "/images/numbers/4.png",  // Image for player 4
-    "/images/numbers/5.png",  // Image for player 5
-    "/images/numbers/6.jpg",  // Image for player 1
-    "/images/numbers/7.png",  // Image for player 2
+    "/images/numbers/10.png",  // Image for player 1
+    "/images/numbers/9.png",  // Image for player 2
     "/images/numbers/8.png",  // Image for player 3
-    "/images/numbers/9.png",  // Image for player 4
-    "/images/numbers/10.png",  // Image for player 5
+    "/images/numbers/7.png",  // Image for player 4
+    "/images/numbers/6.jpg",  // Image for player 5
+    "/images/numbers/5.png",  // Image for player 1
+    "/images/numbers/4.png",  // Image for player 2
+    "/images/numbers/3.png",  // Image for player 3
+    "/images/numbers/2.png",  // Image for player 4
+    "/images/numbers/1.png",  // Image for player 5
 ];
 
 window.onload = function() {
