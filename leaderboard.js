@@ -37,7 +37,7 @@ window.onload = function() {
                         trigger:card,
                         start:"top 12%",
                         end:"bottom 12%",
-                        stagger:0.5,
+                        stagger:0.3,
                         scrub:true
                     }    
                 })
