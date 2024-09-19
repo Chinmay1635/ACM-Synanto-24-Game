@@ -21,7 +21,7 @@ window.onload = function() {
         
         data.forEach((entry, index) => {
             const card = document.createElement('div');
-            card.classList.add('card', 'card1', 'w-[27vw]', 'rounded-lg', 'py-20', 'my-5', 'px-[20px]', 'flex', 'flex-col', 'gap-4', 'items-center', 'bg-[#2e251e]');
+            card.classList.add('card', 'card1', 'w-[27vw]', 'rounded-lg', 'py-20', 'my-5', 'px-[20px]', 'flex', 'flex-col', 'gap-4', 'items-center', 'bg-[#9F650D]');
             
             // Dynamically assign images based on the rank or player data
             const playerImage = playerImages[index % playerImages.length]; // Loop through images for each player
