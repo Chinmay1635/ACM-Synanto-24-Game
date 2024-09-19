@@ -28,11 +28,13 @@ window.onload = function() {
 
             card.innerHTML = `
                 <img src="${playerImage}" alt="Player Avatar" class="w-[150px] aspect-square" />
-                <h1 class="capitalize font-thin text-3xl">
-                    ${entry.totalScore} <br />
+                <h1 class="capitalize flex flex-col gap-10 font-thin text-3xl">
+                   Score: ${entry.totalScore}
                     <span class="font-bold uppercase">${entry.username}</span>
                 </h1>
             `;
+
+
 
             document.querySelectorAll(".card").forEach(card=>{
                 gsap.to(card,{
@@ -42,7 +44,7 @@ window.onload = function() {
                         trigger:card,
                         start:"top 15%",
                         end:"bottom 15%",
-                        stagger:0.3,
+                        stagger:0.4,
                         scrub:true
                     }    
                 })
