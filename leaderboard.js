@@ -37,7 +37,7 @@ window.onload = function() {
 
 
             document.querySelectorAll(".card").forEach(card=>{
-                gsap.from(card,{
+                gsap.to(card,{
                     opacity:0,
                     scale:0.7,
                     scrollTrigger:{
