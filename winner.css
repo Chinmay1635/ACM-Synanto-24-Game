@@ -36,6 +36,7 @@ body {
 
 /* Win banner settings */
 .win-banner {
+    width: 80% ;
     position: absolute;
     top: 40%;
     text-align: center;
@@ -45,7 +46,12 @@ body {
 
 
 .win-banner h1 {
-    font-size: 10vw;
+    position: absolute;
+    top: 350%;
+    right: 1%;
+    text-align: center;
+    z-index: 2;
+    font-size: 6vw;
     color: white;
     background-color: #e6007e;
     padding: 10px;

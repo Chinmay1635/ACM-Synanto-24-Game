@@ -9,7 +9,7 @@
 // };
 // script.js
 
-document.getElementById("score").innerText = localStorage.getItem("totalScore");
+//document.getElementById("score").innerText = localStorage.getItem("totalScore");
 window.onload = function () {
     document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     localStorage.clear();
