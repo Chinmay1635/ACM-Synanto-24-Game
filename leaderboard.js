@@ -1,5 +1,5 @@
 window.onload = function () {
-    fetch('http://localhost:3000/api/user/leaderboard')
+    fetch('https://acm-synanto-24-game.onrender.com/api/user/leaderboard')
         .then(response => response.json())
         .then(data => {
             const leaderboardDiv = document.getElementById('leaderboard');

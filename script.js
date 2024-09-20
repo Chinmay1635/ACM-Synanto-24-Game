@@ -93,7 +93,7 @@ async function saveUsername() {
         });
         return;
     } else {
-        fetch('http://localhost:3000/api/user/check-username', {
+        fetch('https://acm-synanto-24-game.onrender.com/api/user/check-username', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ async function saveUsername() {
                     });
                     return;
                 } else {
-                    fetch('http://localhost:3000/api/user/save-user', {
+                    fetch('https://acm-synanto-24-game.onrender.com/api/user/save-user', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

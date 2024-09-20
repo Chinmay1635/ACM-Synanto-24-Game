@@ -282,7 +282,7 @@ function calculateScore(timeTaken) {
 }
 
 function sendScoreToBackend(username, score, level) {
-    fetch('http://localhost:3000/api/score/submit-score', {
+    fetch('https://acm-synanto-24-game.onrender.com/api/score/submit-score', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
